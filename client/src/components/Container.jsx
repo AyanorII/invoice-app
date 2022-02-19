@@ -5,8 +5,8 @@ const StyleContainer = styled.div`
   padding: 6.4% 8.5%;
 `;
 
-function Container({ children }) {
-  return <StyleContainer>{children}</StyleContainer>;
+function Container({ children, className }) {
+  return <StyleContainer className={className}>{children}</StyleContainer>;
 }
 
 export default Container;

@@ -10,11 +10,15 @@ const Container = styled.div`
   background-color: ${(props) => props.theme.background};
   gap: 1rem;
   border-radius: 14px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
   height: 0;
   padding: 0;
   overflow: hidden;
   transition: all 0.35s;
+  box-shadow: 0.5px 3.3px 2.9px rgba(0, 0, 0, 0.03),
+    1.1px 8px 7px rgba(0, 0, 0, 0.036), 2.1px 15.2px 13.3px rgba(0, 0, 0, 0.039),
+    3.8px 27px 23.7px rgba(0, 0, 0, 0.042),
+    7.1px 50.6px 44.3px rgba(0, 0, 0, 0.05),
+    17px 121px 106px rgba(0, 0, 0, 0.08);
 
   * {
     transition: all 0.35s;
