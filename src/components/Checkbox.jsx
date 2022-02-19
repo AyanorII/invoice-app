@@ -73,7 +73,6 @@ const StyledCheckbox = styled.div`
 `;
 
 function Checkbox(props) {
-  console.log(props)
   return (
     // <StyledCheckbox
     //   type="checkbox"
