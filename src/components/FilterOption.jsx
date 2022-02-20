@@ -16,8 +16,6 @@ function FilterOption(props) {
 
   const handleChange = (e) => {
     setChecked(!e.target.checked);
-    console.log("Clicked");
-    console.log(checked);
   };
 
   return (
@@ -27,6 +25,7 @@ function FilterOption(props) {
         id={props.id}
         checked={checked}
         handleChange={handleChange}
+        handleFilter={props.handleChange}
         option={props.children}
       />
     </Option>

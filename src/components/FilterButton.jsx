@@ -30,12 +30,11 @@ const Wrapper = styled.div`
   position: relative;
 `;
 
-function FilterButton() {
+function FilterButton(props) {
   const [expanded, setExpanded] = useState(false);
 
   const handleClick = () => {
     setExpanded((prev) => !prev);
-    console.log("Clicked");
   };
 
   return (
@@ -43,7 +42,7 @@ function FilterButton() {
       <Button onClick={handleClick} className={expanded && "open"}>
         Filter
       </Button>
-      <FilterModal expanded={expanded}/>
+      <FilterModal expanded={expanded} handleChange={props.handleChange}/>
     </Wrapper>
   );
 }

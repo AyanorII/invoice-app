@@ -26,7 +26,7 @@ const Span = styled.span`
 const pluralize = (count, word) =>
   count === 1 ? `1 ${word}` : `${count} ${word}s`;
 
-function IndexHeader({ invoices }) {
+function IndexHeader({ invoices, handleChange }) {
   return (
     <Container>
       <Header>
@@ -34,7 +34,7 @@ function IndexHeader({ invoices }) {
           <Heading>Invoices</Heading>
           <Span>{pluralize(invoices.length, "invoice")}</Span>
         </Wrapper>
-        <IndexButtons />
+        <IndexButtons handleChange={handleChange}/>
       </Header>
     </Container>
   );

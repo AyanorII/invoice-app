@@ -38,13 +38,17 @@ const Container = styled.div`
 function FilterModal(props) {
   return (
     <Container className={props.expanded && "expanded"}>
-      <FilterOption id="draft" name="draft">
+      <FilterOption id="draft" name="draft" handleChange={props.handleChange}>
         Draft
       </FilterOption>
-      <FilterOption id="pending" name="pending">
+      <FilterOption
+        id="pending"
+        name="pending"
+        handleChange={props.handleChange}
+      >
         Pending
       </FilterOption>
-      <FilterOption id="paid" name="paid">
+      <FilterOption id="paid" name="paid" handleChange={props.handleChange}>
         Paid
       </FilterOption>
     </Container>

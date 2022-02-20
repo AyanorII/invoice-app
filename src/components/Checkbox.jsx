@@ -73,17 +73,18 @@ const StyledCheckbox = styled.div`
 `;
 
 function Checkbox(props) {
+  const handleChange = (e) => {
+    const option = props.option.toLowerCase();
+    const checked = e.target.checked;
+    props.handleChange(e);
+    props.handleFilter(option, checked);
+  };
+
   return (
-    // <StyledCheckbox
-    //   type="checkbox"
-    //   id={props.id}
-    //   name={props.name}
-    //   onChange={() => props.handleChange}
-    // />
     <StyledCheckbox>
       <label className="b-contain">
         <span>{props.option}</span>
-        <input type="checkbox" />
+        <input type="checkbox" onChange={(e) => handleChange(e)} />
         <div className="b-input"></div>
       </label>
     </StyledCheckbox>
