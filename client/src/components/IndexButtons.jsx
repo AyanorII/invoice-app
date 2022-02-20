@@ -35,10 +35,10 @@ const NewInvoiceButton = styled(Button)`
   }
 `;
 
-function IndexButtons() {
+function IndexButtons({handleChange}) {
   return (
     <Container>
-      <FilterButton />
+      <FilterButton handleChange={handleChange}/>
       <NewInvoiceButton to="/" variant="new">
         <span></span>
         New

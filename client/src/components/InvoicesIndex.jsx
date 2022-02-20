@@ -11,19 +11,36 @@ const StyledContainer = styled(Container)`
 `;
 
 function InvoicesIndex() {
+  // Fetch invoices from API
   const [invoices, setInvoices] = useState([]);
   useEffect(() => {
     fetch("http://localhost:5001/invoices")
       .then((res) => res.json())
       .then((data) => setInvoices(data));
   }, []);
+
+  const [filters, setFilters] = useState({
+    paid: false,
+    pending: false,
+    draft: false,
+  });
+
+  const filterInvoices = (input, checked) => {
+    setFilters({ ...filters, [input]: checked });
+  };
+
+  const filteredInvoices = invoices.filter((invoice) =>
+    Object.values(filters).every((status) => status === false)
+      ? invoice
+      : filters[invoice.status]
+  );
+
   return (
     <>
-      <IndexHeader invoices={invoices} />
+      <IndexHeader invoices={invoices} handleChange={filterInvoices} />
       <StyledContainer>
         {invoices &&
-          invoices.map((invoice) => {
-            console.log(invoice.status);
+          filteredInvoices.map((invoice) => {
             return (
               <Card
                 key={invoice._id}
