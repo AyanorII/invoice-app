@@ -16,6 +16,9 @@ const StyledNavbar = styled.nav`
     min-height: 100vh;
     border-radius: 0 30px 30px 0;
     justify-content: space-between;
+    grid-column: 1 / 2;
+    grid-row: 1 / 3;
+    position: fixed;
   }
 `;
 

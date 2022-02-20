@@ -2,7 +2,11 @@ import React from "react";
 import styled from "styled-components";
 
 const StyleContainer = styled.div`
-  padding: 6.4% 8.5%;
+  padding-inline: 8.5%;
+
+  @media (min-width: 768px) {
+    padding-inline: 6.25%;
+  }
 `;
 
 function Container({ children, className }) {

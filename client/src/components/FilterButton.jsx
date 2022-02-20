@@ -24,6 +24,14 @@ const Button = styled.button`
   &.open::after {
     transform: translateY(-50%) rotate(180deg);
   }
+
+  .tablet {
+    display: none;
+
+    @media (min-width: 768px) {
+      display: initial;
+    }
+  }
 `;
 
 const Wrapper = styled.div`
@@ -40,7 +48,7 @@ function FilterButton(props) {
   return (
     <Wrapper>
       <Button onClick={handleClick} className={expanded && "open"}>
-        Filter
+        Filter <span className="tablet">by status</span>
       </Button>
       <FilterModal expanded={expanded} handleChange={props.handleChange}/>
     </Wrapper>

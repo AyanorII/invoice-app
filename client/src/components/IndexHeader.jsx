@@ -3,6 +3,21 @@ import styled from "styled-components";
 import IndexButtons from "./IndexButtons";
 import Container from "./Container";
 
+const StyledContainer = styled(Container)`
+  margin-top: 3.375rem;
+  margin-bottom: 2rem;
+
+  @media (min-width: 768px) {
+    margin-block: 3.5rem;
+  }
+
+  @media (min-width: 1440px) {
+    padding-inline: calc(24.6% - 103px) 24.6%;
+    grid-row: 1 / 2;
+    grid-column: 2 / 3;
+  }
+`;
+
 const Header = styled.header`
   display: flex;
   justify-content: space-between;
@@ -15,12 +30,27 @@ const Heading = styled.h1`
   font-size: 1.25rem;
   line-height: 22.4px;
   letter-spacing: -0.63px;
+
+  @media (min-width: 768px) {
+    font-size: 2rem;
+    line-height: 32px;
+    letter-spacing: -1px;
+    margin-bottom: 5px;
+  }
 `;
 
-const Span = styled.span`
+const InvoiceNumber = styled.span`
   font-size: 0.75rem;
   line-height: 15px;
   letter-spacing: -0.25px;
+
+  .tablet {
+    display: none;
+
+    @media (min-width: 768px) {
+      display: inline;
+    }
+  }
 `;
 
 const pluralize = (count, word) =>
@@ -28,15 +58,18 @@ const pluralize = (count, word) =>
 
 function IndexHeader({ invoices, handleChange }) {
   return (
-    <Container>
+    <StyledContainer>
       <Header>
         <Wrapper>
           <Heading>Invoices</Heading>
-          <Span>{pluralize(invoices.length, "invoice")}</Span>
+          <InvoiceNumber>
+            <span className="tablet">There {invoices.length === 1 ? "is" : "are"} </span>
+            {pluralize(invoices.length, "invoice")}
+          </InvoiceNumber>
         </Wrapper>
-        <IndexButtons handleChange={handleChange}/>
+        <IndexButtons handleChange={handleChange} />
       </Header>
-    </Container>
+    </StyledContainer>
   );
 }
 

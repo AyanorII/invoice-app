@@ -42,9 +42,8 @@ function ThemeButton({ theme, toggleTheme }) {
     <Wrapper>
       <Button
         theme={theme}
-        onClick={(e) => {
+        onClick={() => {
           toggleTheme();
-          console.log("Clicked");
         }}
       />
     </Wrapper>

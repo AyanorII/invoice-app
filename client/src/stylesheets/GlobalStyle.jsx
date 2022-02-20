@@ -29,6 +29,7 @@ const GlobalStyle = createGlobalStyle`
     @media (min-width: 1440px) {
       display: grid;
       grid-template-columns: 103px 1fr;
+      grid-template-rows: auto auto;
     }
   }
 `;
