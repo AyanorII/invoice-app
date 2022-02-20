@@ -7,4 +7,11 @@ router.route("/").get((req, res) => {
     .catch((err) => res.status(400).json("Error: " + err));
 });
 
-module.exports = router
+router.route("/:id").get((req, res) => {
+  const { id } = req.params;
+  Invoice.find({ invoiceId: id })
+    .then((inv) => res.json(inv))
+    .catch((err) => res.status(400).json("Error: " + err));
+});
+
+module.exports = router;

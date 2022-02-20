@@ -6,6 +6,7 @@ require("dotenv").config({ path: path.resolve(__dirname, "./.env") });
 
 mongoose.connect(process.env.ATLAS_URI);
 
+
 Invoice.deleteMany({})
   .then(() => {
     Invoice.insertMany(data)
@@ -22,8 +23,4 @@ Invoice.deleteMany({})
     console.log(err);
   });
 
-// const invoice = new Invoice({ clientName: "John Doe" })
-// invoice.save().then(() => {
-//   console.log("Invoice saved");
-// })
 console.log(Invoice.find().length);

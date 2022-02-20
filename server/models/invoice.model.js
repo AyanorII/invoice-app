@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const invoiceSchema = new Schema({
+  invoiceId: String,
   createdAt: Date,
   paymentDue: Date,
   description: String,
