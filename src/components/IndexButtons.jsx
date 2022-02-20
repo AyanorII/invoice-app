@@ -8,12 +8,16 @@ const Container = styled.div`
   gap: 1rem;
   justify-content: space-between;
   align-items: center;
+
+  @media (min-width: 1440px) {
+    gap: 2.5rem;
+  }
 `;
 
 const NewInvoiceButton = styled(Button)`
   padding-right: 15px;
 
-  span {
+  .icon {
     background-color: #fff;
     width: 32px;
     height: 32px;
@@ -33,6 +37,15 @@ const NewInvoiceButton = styled(Button)`
       top: 1px;
     }
   }
+
+  .tablet {
+    display: none;
+
+    @media (min-width: 768px) {
+      display: inline-block;
+      margin-left: 5px;
+    }
+  }
 `;
 
 function IndexButtons({handleChange}) {
@@ -40,8 +53,9 @@ function IndexButtons({handleChange}) {
     <Container>
       <FilterButton handleChange={handleChange}/>
       <NewInvoiceButton to="/" variant="new">
-        <span></span>
+        <span className="icon"></span>
         New
+        <span className="tablet">Invoice</span>
       </NewInvoiceButton>
     </Container>
   );

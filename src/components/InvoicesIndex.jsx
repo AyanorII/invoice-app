@@ -8,6 +8,17 @@ const StyledContainer = styled(Container)`
   display: grid;
   grid-template-columns: 1fr;
   row-gap: 1rem;
+  margin-bottom: 6.5625rem;
+
+  @media (min-width: 768px) {
+    margin-bottom: 10.8125rem;
+  }
+
+  @media (min-width: 1440px) {
+    grid-row: 2 / 3;
+    grid-column: 2 / 3;
+    padding-inline: calc(24.6% - 103px) 24.6%;
+  }
 `;
 
 function InvoicesIndex() {
@@ -37,13 +48,14 @@ function InvoicesIndex() {
 
   return (
     <>
-      <IndexHeader invoices={invoices} handleChange={filterInvoices} />
+      <IndexHeader invoices={filteredInvoices} handleChange={filterInvoices} />
       <StyledContainer>
         {invoices &&
           filteredInvoices.map((invoice) => {
             return (
               <Card
                 key={invoice._id}
+                to={invoice.id}
                 id={invoice.id}
                 client={invoice.clientName}
                 date={invoice.paymentDue}
