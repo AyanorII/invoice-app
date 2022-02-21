@@ -18,7 +18,6 @@ const StyledContainer = styled(Container)`
   @media (min-width: 1440px) {
     grid-row: 2 / 3;
     grid-column: 2 / 3;
-    padding-inline: calc(24.6% - 103px) 24.6%;
   }
 `;
 
