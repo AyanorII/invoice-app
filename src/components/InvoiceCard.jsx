@@ -27,15 +27,16 @@ const StyledCard = styled(Card)`
     grid-row: 2 / 4;
 
     @media (min-width: 768px) {
-      justify-self: inherit;
+      justify-self: center;
       grid-column: 5 / 6;
       grid-row: 1 / 2;
     }
+
   }
 
   @media (min-width: 768px) {
     grid-template-rows: 1fr;
-    grid-template-columns: 0.25fr 1fr 1fr 0.75fr 1fr;
+    grid-template-columns: 0.5fr 1fr 0.75fr 0.75fr 1fr;
     gap: 1.75rem;
     align-items: center;
     justify-items: start;
