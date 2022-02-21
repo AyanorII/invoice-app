@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import IndexHeader from "./IndexHeader";
 import Container from "./Container";
-import Card from "./Card";
+import Card from "./InvoiceCard";
 
 const StyledContainer = styled(Container)`
   display: grid;
@@ -11,7 +11,6 @@ const StyledContainer = styled(Container)`
   margin-bottom: 6.5625rem;
 
   @media (min-width: 768px) {
-    margin-top: 3.5rem;
     margin-bottom: 10.8125rem;
   }
 
