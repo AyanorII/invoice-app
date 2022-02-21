@@ -31,7 +31,7 @@ const ButtonsContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: absolute;
+  position: fixed;
   bottom: 0;
   width: 100%;
   max-width: 450px;
