@@ -9,6 +9,10 @@ const StyledCard = styled(Card)`
   position: relative;
   padding-bottom: 5rem;
   overflow: hidden;
+
+  @media (min-width: 768px) {
+    grid-column: 1 / 4;
+  }
 `;
 
 const Total = styled.div`
