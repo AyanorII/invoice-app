@@ -2,16 +2,13 @@ import React from "react";
 import styled from "styled-components";
 import Button from "./Button";
 import StatusButton from "./StatusButton";
+import Card from "./Card";
 
-const Card = styled.div`
+const StyledCard = styled(Card)`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.5rem;
-  background: ${(props) => props.theme.background};
-  border-radius: 10px;
   margin-top: 2rem;
-  box-shadow: 0 0 10px 0 #00000025;
 `;
 
 const StatusContainer = styled.div`
@@ -56,7 +53,7 @@ const ButtonsContainer = styled.div`
 
 function InvoiceTopCard(props) {
   return (
-    <Card>
+    <StyledCard>
       <StatusContainer>
         <p>Status</p>
         <StatusButton status={props.status} />
@@ -72,7 +69,7 @@ function InvoiceTopCard(props) {
           Mark as Paid
         </Button>
       </ButtonsContainer>
-    </Card>
+    </StyledCard>
   );
 }
 
