@@ -31,7 +31,7 @@ function App() {
           <Router>
             <Routes>
               <Route path="/" element={<InvoicesIndex />} />
-              <Route path="/:id" element={<Invoice />}/>
+              <Route path="/invoices/:id" element={<Invoice />}/>
               <Route path="/invoices" element={<Navigate to="/" />} />
             </Routes>
           </Router>
