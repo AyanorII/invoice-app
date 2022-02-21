@@ -18,6 +18,14 @@ const StyledCard = styled(Card)`
     line-height: 1.5rem;
     color: ${(props) => props.theme.text.primary};
   }
+
+  @media (min-width: 768px) {
+    padding: 2rem;
+  }
+
+  @media (min-width: 1440px) {
+    padding: 3rem;
+  }
 `;
 
 const Id = styled.p`
@@ -30,6 +38,11 @@ const Id = styled.p`
 
 const SenderAddress = styled.div`
   grid-column: 1 / 3;
+
+  @media (min-width: 768px) {
+    grid-column: 3 / 4;
+    justify-self: end;
+  }
 `;
 
 const Dates = styled.div`
@@ -55,6 +68,10 @@ const BillTo = styled.div`
   p:nth-of-type(2) {
     margin-bottom: 0.25rem;
   }
+
+  @media (min-width: 768px) {
+    grid-row: 2 / 4;
+  }
 `;
 
 const SentTo = styled.div`
@@ -62,6 +79,11 @@ const SentTo = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
+
+  @media (min-width: 768px) {
+    grid-column: 3 / 4;
+    grid-row: 2 / 3;
+  }
 `
 
 function InvoiceDetails({ invoice }) {
