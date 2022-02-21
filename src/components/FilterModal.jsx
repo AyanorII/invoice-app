@@ -4,6 +4,7 @@ import FilterOption from "./FilterOption";
 
 const Container = styled.div`
   position: absolute;
+  z-index: 1;
   right: -50%;
   display: flex;
   flex-direction: column;
