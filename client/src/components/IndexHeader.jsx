@@ -4,12 +4,7 @@ import IndexButtons from "./IndexButtons";
 import Container from "./Container";
 
 const StyledContainer = styled(Container)`
-  margin-top: 3.375rem;
   margin-bottom: 2rem;
-
-  @media (min-width: 768px) {
-    margin-block: 3.5rem;
-  }
 
   @media (min-width: 1440px) {
     padding-inline: calc(24.6% - 103px) 24.6%;

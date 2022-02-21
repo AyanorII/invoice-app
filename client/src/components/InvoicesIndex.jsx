@@ -11,6 +11,7 @@ const StyledContainer = styled(Container)`
   margin-bottom: 6.5625rem;
 
   @media (min-width: 768px) {
+    margin-top: 3.5rem;
     margin-bottom: 10.8125rem;
   }
 
