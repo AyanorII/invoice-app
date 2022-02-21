@@ -4,6 +4,7 @@ import Container from "./Container";
 import GoBackButton from "./GoBackButton";
 import InvoiceTopCard from "./InvoiceTopCard";
 import { useParams } from "react-router-dom";
+import InvoiceDetails from "./InvoiceDetails";
 
 const StyledContainer = styled(Container)`
   background-color: ${(props) => props.theme.body.background};
@@ -11,7 +12,7 @@ const StyledContainer = styled(Container)`
 
 function Invoice() {
   const { id } = useParams();
-  const [invoice, setInvoice] = useState({});
+  const [invoice, setInvoice] = useState();
 
   useEffect(() => {
     fetch(`http://localhost:5001/invoices/${id}`)
@@ -24,7 +25,8 @@ function Invoice() {
   return (
     <StyledContainer>
       <GoBackButton />
-      <InvoiceTopCard status={invoice.status || ''} />
+      {invoice && <InvoiceTopCard status={invoice.status || ''} />}
+      {invoice && <InvoiceDetails invoice={invoice}/>}
     </StyledContainer>
   );
 }
