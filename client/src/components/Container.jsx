@@ -8,6 +8,11 @@ const StyleContainer = styled.div`
   @media (min-width: 768px) {
     margin-inline: 6.25%;
   }
+
+  @media (min-width: 1440px) {
+    margin-inline: calc(24.6% - 103px) 24.6%;
+    grid-column: 2 / 3;
+  }
 `;
 
 function Container({ children, className }) {
