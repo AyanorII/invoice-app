@@ -13,6 +13,11 @@ const StyledCard = styled(Link)`
   grid-template-rows: 0.75fr 1fr;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
   position: relative;
+  transition: all 0.35s;
+
+  &:hover {
+    transform: scale(1.05);
+  }
 
   *:not(button) {
     font-size: 0.75rem;
