@@ -14,9 +14,7 @@ const StyledButton = styled(NavLink)`
         return props.theme.purple.primary;
       case "delete":
         return props.theme.red.primary;
-      case "edit-light":
-        return props.theme.body.background;
-      case "edit-dark":
+      case "edit":
         return props.theme.body.background;
       case "draft":
         return props.theme.body.background;
@@ -32,7 +30,7 @@ const StyledButton = styled(NavLink)`
   justify-content: space-between;
   align-items: center;
   font-size: 0.75rem;
-  color: #FFF;
+  color: ${(props) => props.color || "#FFF"};
 
   &:hover {
     background-color: ${(props) => {
@@ -60,6 +58,7 @@ function Button(props) {
       to={props.to}
       variant={props.variant}
       className={props.className}
+      color={props.color}
     >
       {props.children}
     </StyledButton>
