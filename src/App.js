@@ -13,6 +13,7 @@ import GlobalStyle from "./stylesheets/GlobalStyle";
 import { lightTheme, darkTheme } from "./stylesheets/theme";
 import Navbar from "./components/Navbar";
 import InvoicesIndex from "./components/InvoicesIndex";
+import Invoice from "./components/Invoice";
 
 function App() {
   const [theme, setTheme] = useState("light");
@@ -30,6 +31,8 @@ function App() {
           <Router>
             <Routes>
               <Route path="/" element={<InvoicesIndex />} />
+              <Route path="/:id" element={<Invoice />}/>
+              <Route path="/invoices" element={<Navigate to="/" />} />
             </Routes>
           </Router>
         </div>
