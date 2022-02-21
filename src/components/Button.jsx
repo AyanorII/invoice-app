@@ -15,7 +15,7 @@ const StyledButton = styled(NavLink)`
       case "delete":
         return props.theme.red.primary;
       case "edit":
-        return props.theme.body.background;
+        return props.theme.text.secondary;
       case "draft":
         return props.theme.body.background;
       default:
@@ -30,7 +30,8 @@ const StyledButton = styled(NavLink)`
   justify-content: space-between;
   align-items: center;
   font-size: 0.75rem;
-  color: ${(props) => props.color || "#FFF"};
+  color: ${(props) =>
+    props.variant === "edit" ? props.theme.body.background : "#FFF"};
 
   &:hover {
     background-color: ${(props) => {

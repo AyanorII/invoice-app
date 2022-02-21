@@ -37,7 +37,6 @@ const ButtonsContainer = styled.div`
   max-width: 450px;
   left: 50%;
   transform: translateX(-50%);
-  background: ${(props) => props.theme.body.background};
   padding: 1.25rem 1.5rem;
 
   @media (min-width: 768px) {
@@ -59,7 +58,7 @@ function InvoiceTopCard(props) {
         <StatusButton status={props.status} />
       </StatusContainer>
       <ButtonsContainer>
-        <Button to="/" variant="edit" color="#000">
+        <Button to="/" variant="edit">
           Edit
         </Button>
         <Button to="/" variant="delete">
