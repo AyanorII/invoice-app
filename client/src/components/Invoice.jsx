@@ -20,8 +20,6 @@ function Invoice() {
       .then((data) => setInvoice(data[0]));
   }, []);
 
-  console.log(invoice);
-
   return (
     <StyledContainer>
       <GoBackButton />

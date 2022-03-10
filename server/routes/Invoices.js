@@ -9,7 +9,7 @@ router.route("/").get((req, res) => {
 
 router.route("/:id").get((req, res) => {
   const { id } = req.params;
-  Invoice.find({ invoiceId: id })
+  Invoice.find({ id: id })
     .then((inv) => res.json(inv))
     .catch((err) => res.status(400).json("Error: " + err));
 });

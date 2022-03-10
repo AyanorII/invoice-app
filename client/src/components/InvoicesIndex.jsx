@@ -50,12 +50,14 @@ function InvoicesIndex() {
       <IndexHeader invoices={filteredInvoices} handleChange={filterInvoices} />
       <StyledContainer>
         {invoices &&
+
           filteredInvoices.map((invoice) => {
+            console.log(invoice.id)
             return (
               <Card
                 key={invoice._id}
-                to={invoice.invoiceId}
-                id={invoice.invoiceId}
+                to={invoice.id}
+                id={invoice.id}
                 client={invoice.clientName}
                 date={invoice.paymentDue}
                 total={invoice.total}
