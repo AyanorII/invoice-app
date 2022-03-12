@@ -52,7 +52,7 @@ function IndexButtons({handleChange}) {
   return (
     <Container>
       <FilterButton handleChange={handleChange}/>
-      <NewInvoiceButton to="/" variant="new">
+      <NewInvoiceButton to="/invoices/new" variant="new">
         <span className="icon"></span>
         New
         <span className="tablet">Invoice</span>
