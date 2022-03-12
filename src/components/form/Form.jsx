@@ -1,6 +1,7 @@
 import React from "react";
 import { useForm, FormProvider } from "react-hook-form";
 import BillFrom from "./BillFrom";
+import BillTo from "./BillTo";
 
 function Form() {
   const methods = useForm();
@@ -11,6 +12,7 @@ function Form() {
     <FormProvider {...methods}>
       <form onSubmit={methods.handleSubmit(onSubmit)}>
         <BillFrom />
+        <BillTo />
         <button>submit</button>
       </form>
     </FormProvider>
