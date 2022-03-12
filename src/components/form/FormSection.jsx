@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const StyledSection = styled.div`
   margin-top: 2rem;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   gap: 1.5rem;
 `;
 
