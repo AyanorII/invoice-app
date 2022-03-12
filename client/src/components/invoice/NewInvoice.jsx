@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components';
 import GoBackButton from '../shared/GoBackButton';
 import Heading from '../shared/Heading';
+import Form from "../form/Form"
 
 const StyledContainer = styled.div`
   background: ${props => props.theme.body.background};
@@ -10,9 +11,10 @@ const StyledContainer = styled.div`
 
 function NewInvoice() {
   return (
-    <StyledContainer> 
+    <StyledContainer>
       <GoBackButton />
       <Heading>New Invoice</Heading>
+      <Form />
     </StyledContainer>
   )
 }
