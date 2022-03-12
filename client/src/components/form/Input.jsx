@@ -1,18 +1,27 @@
-import React from 'react'
-import styled from 'styled-components';
-import { useForm } from "react-hook-form"
+import React, { useState } from "react";
+import styled from "styled-components";
+import { useFormContext, Controller } from "react-hook-form";
+import ErrorMessage from "./ErrorMessage"
 
 const Wrapper = styled.div`
   grid-column: 1 / -1;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 0.625rem;
   justify-content: space-between;
   align-items: start;
-  `;
+
+  &.city {
+    grid-column: 1 / 2;
+  }
+
+  &.postcode {
+    grid-column: 2 / 3;
+  }
+`;
 
 const Label = styled.label`
-  color: ${props => props.theme.text.secondary};
+  color: ${(props) => props.theme.text.secondary};
   font-weight: 500;
   font-size: 0.75rem;
   letter-spacing: -0.25px;
@@ -29,22 +38,41 @@ const StyledInput = styled.input`
   border-radius: 5px;
   letter-spacing: 0.25px;
   width: 100%;
+  grid-column: 1 / -1;
 
   &::placeholder {
     font-style: italic;
     opacity: 0.5;
+    letter-spacing: 0.5px;
   }
 `;
 
-function Input(props) {
-  const { register, errors } = useForm();
+const Input = (props) => {
   const { label, type, placeholder } = props;
+  const { control, formState: {errors} } = useFormContext();
+  const [value, setValue] = useState("");
 
   return (
-    <Wrapper>
+    <Wrapper className={props.className}>
       <Label>{label}</Label>
-      <StyledInput type={type || "text"} placeholder={placeholder}></StyledInput>
+      {errors[props.name] && <ErrorMessage>{errors[props.name].message}</ErrorMessage>}
+      <Controller
+        name={props.name}
+        control={control}
+        rules={props.rules}
+        render={({ field }) => (
+          <StyledInput
+            placeholder={placeholder}
+            type={type || "text"}
+            value={value}
+            onChange={(e) => {
+              setValue(e.target.value);
+              field.onChange(e.target.value);
+            }}
+          />
+        )}
+      />
     </Wrapper>
-  )
-}
-export default Input
+  );
+};
+export default Input;
