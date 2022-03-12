@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 const StyleContainer = styled.div`
-  margin-inline: 8.5%;
+  margin-inline: 5.5%;
   margin-top: 2rem;
 
   @media (min-width: 768px) {
