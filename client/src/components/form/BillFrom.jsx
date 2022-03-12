@@ -1,17 +1,20 @@
-import React from 'react'
-import { useForm } from "react-hook-form"
-import SubHeading from "../shared/SubHeading"
-import FormSection from './FormSection';
-import Input from './Input';
+import React from "react";
+import SubHeading from "../shared/SubHeading";
+import FormSection from "./FormSection";
+import CityInput from "./CityInput";
+import StreetAddressInput from "./StreetAddressInput";
+import PostCode from "./PostCodeInput";
+import CountryInput from "./CountryInput";
 
-function BillFrom() {
-  const { register, errors } = useForm();
-
+const BillFrom = (props) => {
   return (
     <FormSection>
       <SubHeading>Bill From</SubHeading>
-      <Input label="Street Address" placeholder="Street Address" {...register("streetAddress")}></Input>
+      <StreetAddressInput side="sender"/>
+      <CityInput side="sender"/>
+      <PostCode side="sender" />
+      <CountryInput side="sender"/>
     </FormSection>
-  )
-}
-export default BillFrom
+  );
+};
+export default BillFrom;

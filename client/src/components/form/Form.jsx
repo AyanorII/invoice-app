@@ -1,17 +1,19 @@
-import React from 'react'
-import { useForm } from "react-hook-form"
-import BillFrom from './BillFrom';
+import React from "react";
+import { useForm, FormProvider } from "react-hook-form";
+import BillFrom from "./BillFrom";
 
 function Form() {
-  const { handleSubmit } = useForm();
-
-  const onSubmit = () => {
-    console.log("submit");
-  }
+  const methods = useForm();
+  const onSubmit = (data) => {
+    console.log(data);
+  };
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <BillFrom />
-    </form>
-  )
+    <FormProvider {...methods}>
+      <form onSubmit={methods.handleSubmit(onSubmit)}>
+        <BillFrom />
+        <button>submit</button>
+      </form>
+    </FormProvider>
+  );
 }
-export default Form
+export default Form;
