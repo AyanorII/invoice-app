@@ -38,6 +38,8 @@ const ButtonsContainer = styled.div`
   left: 50%;
   transform: translateX(-50%);
   padding: 1.25rem 1.5rem;
+  z-index: 1;
+  background: ${props => props.theme.background};;
 
   @media (min-width: 768px) {
     position: static;

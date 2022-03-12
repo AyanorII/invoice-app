@@ -41,8 +41,8 @@ function ItemList(props) {
 
   return (
     <StyledCard>
-      {props.items.map((item) => (
-        <Item item={item} />
+      {props.items.map((item, index) => (
+        <Item key={index} item={item} />
       ))}
       <Total>
         <p>Grand Total</p>

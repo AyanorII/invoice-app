@@ -17,7 +17,7 @@ function Invoice() {
   useEffect(() => {
     fetch(`http://localhost:5001/invoices/${id}`)
       .then((res) => res.json())
-      .then((data) => setInvoice(data[0]));
+      .then((data) => setInvoice(data));
   }, []);
 
   return (
