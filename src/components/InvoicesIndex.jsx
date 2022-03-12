@@ -52,12 +52,11 @@ function InvoicesIndex() {
         {invoices &&
 
           filteredInvoices.map((invoice) => {
-            console.log(invoice.id)
             return (
               <Card
                 key={invoice._id}
-                to={invoice.id}
-                id={invoice.id}
+                to={invoice.invoiceId}
+                id={invoice.invoiceId}
                 client={invoice.clientName}
                 date={invoice.paymentDue}
                 total={invoice.total}
