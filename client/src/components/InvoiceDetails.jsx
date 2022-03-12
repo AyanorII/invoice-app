@@ -93,7 +93,7 @@ function InvoiceDetails({ invoice }) {
     year: "numeric",
   };
 
-  const get_formatted_date = (date) => {
+  const getFormattedDate = (date) => {
     return (new Date(date).toLocaleDateString("en-UK", options));
   };
 
@@ -114,11 +114,11 @@ function InvoiceDetails({ invoice }) {
       </SenderAddress>
       <Dates>
         <p>Invoice Date</p>
-        <p className="bold">{get_formatted_date(invoice.createdAt)}</p>
+        <p className="bold">{getFormattedDate(invoice.createdAt)}</p>
       </Dates>
       <Dates>
         <p>Payment Due</p>
-        <p className="bold">{get_formatted_date(invoice.paymentDue)}</p>
+        <p className="bold">{getFormattedDate(invoice.paymentDue)}</p>
       </Dates>
       <BillTo>
         <p>Bill To</p>
