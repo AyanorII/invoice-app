@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import chevron from "../assets/icon-arrow-down.svg";
+import chevron from "../../assets/icon-arrow-down.svg";
 import FilterModal from "./FilterModal";
 
 const Button = styled.button`

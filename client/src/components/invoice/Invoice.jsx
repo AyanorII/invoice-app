@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import Container from "./Container";
-import GoBackButton from "./GoBackButton";
+import Container from "../shared/Container";
+import GoBackButton from "../shared/GoBackButton";
 import InvoiceTopCard from "./InvoiceTopCard";
 import { useParams } from "react-router-dom";
 import InvoiceDetails from "./InvoiceDetails";

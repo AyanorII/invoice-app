@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import FilterButton from "./FilterButton";
-import Button from "./Button";
+import FilterButton from "./filter/FilterButton";
+import Button from "./shared/Button";
 
 const Container = styled.div`
   display: flex;

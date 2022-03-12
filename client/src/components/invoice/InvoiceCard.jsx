@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 import StatusButton from "./StatusButton";
-import arrow from "../assets/icon-arrow-right.svg";
+import arrow from "../../assets/icon-arrow-right.svg";
 import { Link } from "react-router-dom";
-import Card from "./Card";
+import Card from "../shared/Card";
 
 const StyledCard = styled(Card)`
   display: grid;

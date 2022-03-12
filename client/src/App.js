@@ -11,9 +11,9 @@ import { ThemeProvider } from "styled-components";
 // Components
 import GlobalStyle from "./stylesheets/GlobalStyle";
 import { lightTheme, darkTheme } from "./stylesheets/theme";
-import Navbar from "./components/Navbar";
-import InvoicesIndex from "./components/InvoicesIndex";
-import Invoice from "./components/Invoice";
+import Navbar from "./components/shared/Navbar";
+import InvoicesIndex from "./components/invoice/InvoicesIndex";
+import Invoice from "./components/invoice/Invoice";
 
 function App() {
   const [theme, setTheme] = useState("light");

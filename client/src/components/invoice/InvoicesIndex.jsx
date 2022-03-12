@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import IndexHeader from "./IndexHeader";
-import Container from "./Container";
+import IndexHeader from "../IndexHeader";
+import Container from "../shared/Container";
 import Card from "./InvoiceCard";
 
 const StyledContainer = styled(Container)`

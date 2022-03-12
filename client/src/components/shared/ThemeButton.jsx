@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import sun from "../assets/icon-sun.svg";
-import moon from "../assets/icon-moon.svg";
+import sun from "../../assets/icon-sun.svg";
+import moon from "../../assets/icon-moon.svg";
 
 const Wrapper = styled.div`
   flex: 1;
