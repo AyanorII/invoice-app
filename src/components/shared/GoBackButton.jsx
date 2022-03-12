@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
-import arrow from "../assets/icon-arrow-left.svg";
+import arrow from "../../assets/icon-arrow-left.svg";
 
 const Button = styled(NavLink)`
   color: ${(props) => props.theme.text.primary};

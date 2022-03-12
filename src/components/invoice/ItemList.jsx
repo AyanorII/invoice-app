@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import Card from './Card'
+import Card from '../shared/Card'
 import Item from './Item';
 
 const StyledCard = styled(Card)`

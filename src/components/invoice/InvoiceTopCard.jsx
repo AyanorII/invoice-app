@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import Button from "./Button";
+import Button from "../shared/Button";
 import StatusButton from "./StatusButton";
-import Card from "./Card";
+import Card from "../shared/Card";
 
 const StyledCard = styled(Card)`
   display: flex;

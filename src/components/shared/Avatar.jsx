@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import userImage from "../assets/image-avatar.jpg";
+import userImage from "../../assets/image-avatar.jpg";
 
 const Wrapper = styled.div`
   border-left: 1px solid #494e6e;
