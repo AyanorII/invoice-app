@@ -3,6 +3,8 @@ import { useForm, FormProvider } from "react-hook-form";
 import BillFrom from "./BillFrom";
 import BillTo from "./BillTo";
 import Dates from "./Dates";
+import ItemList from "./ItemList";
+import ProductDescription from "./ProductDescription";
 
 function Form() {
   const methods = useForm();
@@ -15,6 +17,8 @@ function Form() {
         <BillFrom />
         <BillTo />
         <Dates />
+        <ProductDescription />
+        <ItemList />
         <button>submit</button>
       </form>
     </FormProvider>
