@@ -33,23 +33,25 @@ const StyledButton = styled(NavLink)`
   color: ${(props) =>
     props.variant === "edit" ? props.theme.body.background : "#FFF"};
 
-  &:hover {
-    background-color: ${(props) => {
-      switch (props.variant) {
-        case "new":
-          return props.theme.purple.secondary;
-        case "mark":
-          return props.theme.purple.secondary;
-        case "delete":
-          return props.theme.red.secondary;
-        case "edit-light":
-          return "#DFE3FA";
-        case "edit-dark":
-          return "#FFFFFF";
-        default:
-          return "#DFE3FA";
-      }
-    }};
+  @media (min-width: 1024px) {
+    &:hover {
+      background-color: ${(props) => {
+        switch (props.variant) {
+          case "new":
+            return props.theme.purple.secondary;
+          case "mark":
+            return props.theme.purple.secondary;
+          case "delete":
+            return props.theme.red.secondary;
+          case "edit-light":
+            return "#DFE3FA";
+          case "edit-dark":
+            return "#FFFFFF";
+          default:
+            return "#DFE3FA";
+        }
+      }};
+    }
   }
 `;
 
@@ -60,6 +62,7 @@ function Button(props) {
       variant={props.variant}
       className={props.className}
       color={props.color}
+      onClick={props.onClick}
     >
       {props.children}
     </StyledButton>
