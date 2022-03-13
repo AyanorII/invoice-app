@@ -44,7 +44,7 @@ const StyledInput = styled.input`
 const Input = (props) => {
   const { label, type, placeholder } = props;
   const { control, formState: {errors} } = useFormContext();
-  const [value, setValue] = useState("");
+  const [value, setValue] = useState(props.value || "");
 
   return (
     <Wrapper className={props.className}>
