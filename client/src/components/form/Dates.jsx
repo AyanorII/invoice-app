@@ -8,7 +8,7 @@ import Select from "react-select";
 import ErrorMessage from "./ErrorMessage";
 
 const Wrapper = styled.div`
-  margin-top: 2rem;
+  margin-block: 2rem;
 
   .invoice-date,
   .payment-terms {
