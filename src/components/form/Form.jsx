@@ -2,6 +2,7 @@ import React from "react";
 import { useForm, FormProvider } from "react-hook-form";
 import BillFrom from "./BillFrom";
 import BillTo from "./BillTo";
+import Dates from "./Dates";
 
 function Form() {
   const methods = useForm();
@@ -13,6 +14,7 @@ function Form() {
       <form onSubmit={methods.handleSubmit(onSubmit)}>
         <BillFrom />
         <BillTo />
+        <Dates />
         <button>submit</button>
       </form>
     </FormProvider>
