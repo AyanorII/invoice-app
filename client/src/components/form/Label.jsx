@@ -8,9 +8,9 @@ const StyledLabel = styled.label`
   letter-spacing: -0.25px;
 `;
 
-function Label({children}) {
+function Label({children, htmlFor}) {
   return (
-    <StyledLabel>{children}</StyledLabel>
+    <StyledLabel htmlFor={htmlFor}>{children}</StyledLabel>
   )
 }
 export default Label

@@ -48,7 +48,7 @@ const Input = (props) => {
 
   return (
     <Wrapper className={props.className}>
-      <Label>{label}</Label>
+      <Label htmlFor={props.name}>{label}</Label>
       {errors[props.name] && <ErrorMessage>{errors[props.name].message}</ErrorMessage>}
       <Controller
         name={props.name}
@@ -56,6 +56,7 @@ const Input = (props) => {
         rules={props.rules}
         render={({ field }) => (
           <StyledInput
+            id={props.name}
             placeholder={placeholder}
             type={type || "text"}
             value={value}
