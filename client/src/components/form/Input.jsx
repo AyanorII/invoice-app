@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { useFormContext, Controller } from "react-hook-form";
 import ErrorMessage from "./ErrorMessage"
+import Label from "./Label";
 
 const Wrapper = styled.div`
   grid-column: 1 / -1;
@@ -18,13 +19,6 @@ const Wrapper = styled.div`
   &.postcode {
     grid-column: 2 / 3;
   }
-`;
-
-const Label = styled.label`
-  color: ${(props) => props.theme.text.secondary};
-  font-weight: 500;
-  font-size: 0.75rem;
-  letter-spacing: -0.25px;
 `;
 
 const StyledInput = styled.input`
