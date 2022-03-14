@@ -29,13 +29,14 @@ const Wrapper = styled.div`
     grid-column: 1 / -1;
 
     & > div {
-      border: 1px solid ${(props) => props.theme.text.secondary}50;
       border-radius: 5px;
     }
 
     & div {
-      background: ${(props) => props.theme.background}50;
+      background: ${(props) => props.theme.background}95;
+      border-color: ${(props) => props.theme.text.secondary}50;
       color: ${(props) => props.theme.text.primary} !important;
+      font-size: 0.85rem;
     }
 
     @media (min-width: 768px) {
