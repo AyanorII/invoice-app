@@ -9,7 +9,11 @@ import ItemList from "./ItemList";
 import ProductDescription from "./ProductDescription";
 
 const StyledForm = styled.form`
-  padding-bottom: 5rem;
+  padding-bottom: 6rem;
+
+  @media (min-width: 768px) {
+    padding-bottom: 7rem;
+  }
 `;
 
 function Form() {

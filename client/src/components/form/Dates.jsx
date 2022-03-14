@@ -56,7 +56,7 @@ function Dates() {
 
   return (
     <Wrapper>
-      <FormSection>
+      <FormSection className="dates">
         <div className="invoice-date">
           <Label>Invoice Date</Label>
           <DatePicker />
