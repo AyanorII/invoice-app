@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Input from "./Input";
+import { BsFillTrashFill } from "react-icons/bs";
 
 const StyledItem = styled.li`
   display: grid;
@@ -29,21 +30,27 @@ const StyledItem = styled.li`
 
   .delete {
     grid-area: delete;
+    border: none;
+    background-color: transparent;
+    align-self: end;
+    position: relative;
+    font-size: 1.5rem;
+    padding: 0.5rem;
   }
 `;
 
-function Item({ item }) {
+function Item({ index, remove }) {
   return (
     <StyledItem>
       <Input
-        name="itemName"
+        name={`items[${index}].name`}
         label="Item Name"
         placeholder="Banner Design"
         className="name"
         rules={{ required: "Cannot be empty" }}
       />
       <Input
-        name="quantity"
+        name={`items[${index}].quantity`}
         type="number"
         label="Qty."
         placeholder="1"
@@ -51,7 +58,7 @@ function Item({ item }) {
         rules={{ required: "Cannot be empty" }}
       />
       <Input
-        name="price"
+        name={`items[${index}].price`}
         type="number"
         label="Price"
         placeholder="156.00"
@@ -59,14 +66,20 @@ function Item({ item }) {
         rules={{ required: "Cannot be empty" }}
       />
       <Input
-        name="total"
+        name={`items[${index}].total`}
         type="disabled"
         label="Total"
         placeholder="156.00"
         className="total"
         rules={{ required: "Cannot be empty" }}
       />
-      <button className="delete">trash</button>
+      <button
+        type="button"
+        className="delete"
+        onClick={() => remove(index)}
+      >
+        <BsFillTrashFill />
+      </button>
     </StyledItem>
   );
 }
