@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import AddItemButton from "./AddItemButton";
 import Item from "./Item";
+import { useFieldArray, useFormContext } from "react-hook-form";
 
 const Wrapper = styled.div`
   margin-top: 2rem;
@@ -21,26 +22,19 @@ const Heading = styled.h2`
 `;
 
 function ItemList() {
-  const [items, setItems] = useState([<Item />]);
-
-  const addItem = () => {
-    setItems([...items, <Item />]);
-  }
-
-  const removeItem = (index) => {
-    setItems(items.filter((item, i) => i !== index));
-  }
+  const { control } = useFormContext();
+  const { fields, append, remove } = useFieldArray({ control, name: "items" });
 
   return (
     <Wrapper>
       <Heading>Item List</Heading>
       {/* <Item /> */}
       <StyledItemList>
-        {items.map((item, index) => (
-          <div key={index}>{item}</div>
+        {fields.map((field, index) => (
+          <Item key={field.id} index={index} remove={remove}/>
         ))}
       </StyledItemList>
-      <AddItemButton onClick={addItem}/>
+      <AddItemButton onClick={() => append({})} />
     </Wrapper>
   );
 }
