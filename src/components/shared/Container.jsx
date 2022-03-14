@@ -6,7 +6,7 @@ const StyleContainer = styled.div`
   margin-top: 2rem;
 
   @media (min-width: 768px) {
-    margin-inline: 6.25%;
+    margin-inline: 8%;
   }
 
   @media (min-width: 1440px) {

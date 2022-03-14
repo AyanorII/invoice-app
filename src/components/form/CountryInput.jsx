@@ -7,6 +7,7 @@ function CountryInput({ side }) {
       label="Country"
       name={`${side}Address.country`}
       placeholder="United Kingdom"
+      className="country"
       rules={{
         required: {
           value: true,
