@@ -5,7 +5,7 @@ import Input from "./Input";
 function ProductDescription() {
   return (
     <Input
-      name="productDescription"
+      name="description"
       label="Product Description"
       placeholder="Graphic Design"
       rules={{required: "Cannot be empty" }}

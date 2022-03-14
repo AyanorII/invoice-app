@@ -5,7 +5,7 @@ function CountryInput({ side }) {
   return (
     <Input
       label="Country"
-      name={`${side}Country`}
+      name={`${side}Address.country`}
       placeholder="United Kingdom"
       rules={{
         required: {

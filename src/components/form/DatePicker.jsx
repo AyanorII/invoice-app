@@ -34,7 +34,7 @@ function Dates(props) {
           <ErrorMessage>{errors.invoiceDate.message}</ErrorMessage>
         )}
         <Controller
-          name="invoiceDate"
+          name="createdAt"
           control={control}
           rules={{ required: "Cannot be empty" }}
           defaultValue={new Date()}
