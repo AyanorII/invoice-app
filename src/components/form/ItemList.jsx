@@ -16,7 +16,6 @@ const StyledItemList = styled.ul`
 
 const Heading = styled.h2`
   color: ${(props) => props.theme.text.secondary};
-  margin-bottom: 1rem;
   font-size: 1.5rem;
   font-weight: bold;
 `;
