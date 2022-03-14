@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import styled from "styled-components";
 import Input from "./Input";
 import { BsFillTrashFill } from "react-icons/bs";
@@ -11,6 +11,7 @@ const StyledItem = styled.li`
   row-gap: 1.5rem;
   column-gap: 1rem;
   list-style-type: none;
+  margin-top: 1rem;
 
   .name {
     grid-area: name;
@@ -40,6 +41,20 @@ const StyledItem = styled.li`
 `;
 
 function Item({ index, remove }) {
+  const [quantity, setQuantity] = useState("");
+  const [price, setPrice] = useState("");
+  const [total, setTotal] = useState("");
+
+  const handleQuantityChange = (e) => {
+    setQuantity(parseInt(e));
+    setTotal(e * price || 0);
+  }
+
+  const handlePriceChange = (e) => {
+    setPrice(parseInt(e));
+    setTotal(quantity * e || 0);
+  }
+
   return (
     <StyledItem>
       <Input
@@ -55,6 +70,7 @@ function Item({ index, remove }) {
         label="Qty."
         placeholder="1"
         className="quantity"
+        onChange={handleQuantityChange}
         rules={{ required: "Cannot be empty" }}
       />
       <Input
@@ -63,20 +79,23 @@ function Item({ index, remove }) {
         label="Price"
         placeholder="156.00"
         className="price"
+        onChange={handlePriceChange}
         rules={{ required: "Cannot be empty" }}
       />
       <Input
         name={`items[${index}].total`}
-        type="disabled"
         label="Total"
-        placeholder="156.00"
+        readOnly
+        placeholder={total}
         className="total"
-        rules={{ required: "Cannot be empty" }}
+        value={total}
       />
       <button
         type="button"
         className="delete"
-        onClick={() => remove(index)}
+        onClick={() => {
+          remove(index)
+        }}
       >
         <BsFillTrashFill />
       </button>
