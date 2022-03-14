@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { useFormContext, Controller } from "react-hook-form";
-import ErrorMessage from "./ErrorMessage"
+import ErrorMessage from "./ErrorMessage";
 import Label from "./Label";
 
 const Wrapper = styled.div`
@@ -43,31 +43,38 @@ const StyledInput = styled.input`
 
 const Input = (props) => {
   const { label, type, placeholder } = props;
-  const { control, formState: {errors} } = useFormContext();
+  const {
+    control,
+    formState: { errors },
+  } = useFormContext();
   const [value, setValue] = useState(props.value || "");
-
   return (
     <Wrapper className={props.className}>
       <Label htmlFor={props.name}>{label}</Label>
-      {errors[props.name] && <ErrorMessage>{errors[props.name].message}</ErrorMessage>}
+      {errors[props.name] && (
+        <ErrorMessage>{errors[props.name].message}</ErrorMessage>
+      )}
       <Controller
         name={props.name}
         control={control}
         rules={props.rules}
-        render={({ field }) => (
-          <StyledInput
-            id={props.name}
-            placeholder={placeholder}
-            type={type || "text"}
-            value={value}
-            readOnly={props.readOnly}
-            onChange={(e) => {
-              setValue(e.target.value);
-              field.onChange(e.target.value);
-              props.onChange(e.target.value);
-            }}
-          />
-        )}
+        render={({ field }) => {
+          return (
+            <StyledInput
+              id={props.name}
+              placeholder={placeholder}
+              type={type || "text"}
+              value={value}
+              readOnly={props.readOnly}
+              disabled={props.disabled}
+              onChange={(e) => {
+                setValue(e.target.value);
+                field.onChange(e.target.value);
+                props.onChange && props.onChange(e.target.value);
+              }}
+            />
+          );
+        }}
       />
     </Wrapper>
   );

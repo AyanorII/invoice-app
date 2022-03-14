@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import Input from "./Input";
 import { BsFillTrashFill } from "react-icons/bs";
@@ -43,17 +43,18 @@ const StyledItem = styled.li`
 function Item({ index, remove }) {
   const [quantity, setQuantity] = useState("");
   const [price, setPrice] = useState("");
-  const [total, setTotal] = useState("");
+  const [total, setTotal] = useState((quantity * price).toString());
 
   const handleQuantityChange = (e) => {
     setQuantity(parseInt(e));
     setTotal(e * price || 0);
-  }
+    console.log(total);
+  };
 
   const handlePriceChange = (e) => {
     setPrice(parseInt(e));
     setTotal(quantity * e || 0);
-  }
+  };
 
   return (
     <StyledItem>
@@ -82,19 +83,21 @@ function Item({ index, remove }) {
         onChange={handlePriceChange}
         rules={{ required: "Cannot be empty" }}
       />
+
+      {/* This Input is only for UI, the total is calculated in BackEnd */}
       <Input
-        name={`items[${index}].total`}
+        name=""
+        type="number"
         label="Total"
         readOnly
         placeholder={total}
         className="total"
-        value={total}
       />
       <button
         type="button"
         className="delete"
         onClick={() => {
-          remove(index)
+          remove(index);
         }}
       >
         <BsFillTrashFill />
