@@ -60,9 +60,11 @@ const Input = (props) => {
             placeholder={placeholder}
             type={type || "text"}
             value={value}
+            readOnly={props.readOnly}
             onChange={(e) => {
               setValue(e.target.value);
               field.onChange(e.target.value);
+              props.onChange(e.target.value);
             }}
           />
         )}
