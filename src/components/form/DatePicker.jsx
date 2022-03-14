@@ -10,7 +10,7 @@ import ErrorMessage from "./ErrorMessage";
 const Wrapper = styled.div`
   .date-picker {
     background: ${(props) => props.theme.background};
-    border: 1px solid ${(props) => props.theme.text.secondary}50;
+    border: 1px solid ${(props) => props.theme.text.secondary}30;
     border-radius: 5px;
     width: 100%;
 
