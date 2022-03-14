@@ -5,7 +5,7 @@ function CityInput({side}) {
   return (
     <Input
       label="City"
-      name={`${side}City`}
+      name={`${side}Address.city`}
       placeholder="London"
       className="city"
       rules={{

@@ -5,7 +5,7 @@ function PostCode({side}) {
   return (
     <Input
       label="Post Code"
-      name={`${side}PostCode`}
+      name={`${side}Address.postCode`}
       placeholder="E1 3EZ"
       className="postcode"
       rules={{

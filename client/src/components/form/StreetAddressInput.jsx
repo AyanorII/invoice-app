@@ -5,7 +5,7 @@ function StreetAddressInput({ side }) {
   return (
     <Input
       label="Street Address"
-      name={`${side}StreetAddress`}
+      name={`${side}Address.street`}
       placeholder="19 Union Terrace"
       rules={{
         required: {
