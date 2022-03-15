@@ -1,4 +1,5 @@
 import React from "react";
+import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import Button from "../shared/Button";
 import Container from "../shared/Container"
@@ -49,10 +50,15 @@ const StyledContainer = styled(Container)`
 `;
 
 function FormFooter() {
+
+  const { id } = useParams();
+
   return (
     <Footer>
       <StyledContainer>
-        <Button as="button" variant="edit">
+        <Button
+          to={id ? `/invoices/${id}` : "/"}
+          variant="edit">
           Discard
         </Button>
         <Button as="button" variant="edit">
