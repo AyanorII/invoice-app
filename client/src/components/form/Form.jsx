@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { useForm, FormProvider } from "react-hook-form";
+
 import BillFrom from "./BillFrom";
 import BillTo from "./BillTo";
 import Dates from "./Dates";
@@ -23,7 +24,14 @@ function Form() {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
-    }).then((res) => console.log(res));
+    }).then((res) => {
+      console.log(res);
+      if (res.status === 200) {
+        window.location.href = "/";
+      } else {
+        alert(res.status + " Try Again");
+      }
+    });
   };
   return (
     <FormProvider {...methods}>
