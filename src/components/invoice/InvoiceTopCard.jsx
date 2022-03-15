@@ -54,7 +54,7 @@ const ButtonsContainer = styled.div`
 `;
 
 const markAsPaid = (id) => {
-  const uri = `https://ayanori-invoice-app-server.herokuapp.com/invoices/${id}/paid`;
+  const uri = process.env.FIXIE_URL + `/invoices/${id}/paid`;
   const options = {
     method: "PUT",
   };
@@ -66,7 +66,7 @@ const markAsPaid = (id) => {
 };
 
 const destroy = (id) => {
-  const uri = `https://ayanori-invoice-app-server.herokuapp.com/invoices/${id}`;
+  const uri = process.env.FIXIE_URL + `/invoices/${id}`;
   const options = {
     method: "DELETE",
   };

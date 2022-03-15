@@ -25,7 +25,7 @@ function Form({ method, id, invoice }) {
 
   const methods = useForm();
 
-  const uri = `https://ayanori-invoice-app-server.herokuapp.com/invoices/${
+  const uri = process.env.FIXIE_URL + `/invoices/${
     method.toUpperCase() === "PUT" ? id : "create"
   }`;
 
