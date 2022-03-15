@@ -80,7 +80,6 @@ const destroy = (id) => {
 
 function InvoiceTopCard(props) {
   const { id } = useParams();
-  console.log(id);
 
   return (
     <StyledCard>
@@ -89,7 +88,7 @@ function InvoiceTopCard(props) {
         <StatusButton status={props.status} />
       </StatusContainer>
       <ButtonsContainer>
-        <Button to="/" variant="edit">
+        <Button to={`/invoices/${id}/edit`} variant="edit">
           Edit
         </Button>
         <Button as="button" onClick={() => destroy(id)} variant="delete">

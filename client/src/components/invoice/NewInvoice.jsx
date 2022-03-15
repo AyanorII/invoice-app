@@ -20,7 +20,7 @@ function NewInvoice() {
     <StyledContainer>
       <GoBackButton />
       <Heading>New Invoice</Heading>
-      <Form />
+      <Form method="post"/>
     </StyledContainer>
   )
 }

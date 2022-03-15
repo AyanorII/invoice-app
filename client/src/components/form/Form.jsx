@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { useForm, FormProvider } from "react-hook-form";
 
@@ -17,15 +17,19 @@ const StyledForm = styled.form`
   }
 `;
 
-function Form() {
+function Form({ method, id, invoice }) {
   const methods = useForm();
+
+  const uri = `http://localhost:5001/invoices/${
+    method.toUpperCase() === "PUT" ? id : "create"
+  }`;
+
   const onSubmit = (data) => {
-    fetch("http://localhost:5001/invoices/create", {
-      method: "POST",
+    fetch(uri, {
+      method: method.toUpperCase(),
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
     }).then((res) => {
-      console.log(res);
       if (res.status === 200) {
         window.location.href = "/";
       } else {
@@ -33,16 +37,30 @@ function Form() {
       }
     });
   };
+
+  // If updating, sets each field to the value of the invoice.
+  useEffect(() => {
+    if (method.toUpperCase() === "PUT") {
+      for (const field in methods.getValues()) {
+        if (typeof invoice[field] === "object") {
+          for (const f in invoice[field]) {
+            methods.setValue(field + "." + f, invoice[field][f]);
+          }
+        } else {
+          methods.setValue(field, invoice[field]);
+        }
+      }
+    }
+  }, [])
+
   return (
     <FormProvider {...methods}>
-      <StyledForm
-        onSubmit={methods.handleSubmit(onSubmit)}
-      >
-        <BillFrom />
-        <BillTo />
-        <Dates />
-        <ProductDescription />
-        <ItemList />
+      <StyledForm onSubmit={methods.handleSubmit(onSubmit)}>
+        <BillFrom invoice={invoice} />
+        <BillTo invoice={invoice} />
+        <Dates invoice={invoice} />
+        <ProductDescription invoice={invoice} />
+        <ItemList invoice={invoice} />
         <FormFooter />
       </StyledForm>
     </FormProvider>

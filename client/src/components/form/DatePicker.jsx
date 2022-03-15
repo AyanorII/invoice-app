@@ -20,15 +20,19 @@ const Wrapper = styled.div`
   }
 `;
 
-function Dates(props) {
-  const [value, setValue] = React.useState(new Date());
+function Dates({ className, invoiceDate }) {
+
+  const [value, setValue] = React.useState(
+    invoiceDate ? invoiceDate : new Date()
+  );
+
   const {
     control,
     formState: { errors },
   } = useFormContext();
 
   return (
-    <Wrapper className={props.className}>
+    <Wrapper className={className}>
       <LocalizationProvider dateAdapter={AdapterDateFns}>
         {errors.invoiceDate && (
           <ErrorMessage>{errors.invoiceDate.message}</ErrorMessage>

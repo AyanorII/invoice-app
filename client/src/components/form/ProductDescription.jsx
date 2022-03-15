@@ -1,11 +1,11 @@
 import React from "react";
-import styled from "styled-components";
 import Input from "./Input";
 
-function ProductDescription() {
+function ProductDescription({ invoice }) {
   return (
     <Input
       name="description"
+      value={invoice ? invoice.description : ""}
       label="Product Description"
       placeholder="Graphic Design"
       rules={{required: "Cannot be empty" }}

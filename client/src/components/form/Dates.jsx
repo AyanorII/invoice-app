@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { useFormContext, Controller } from "react-hook-form";
 import DatePicker from "./DatePicker";
@@ -45,25 +45,37 @@ const Wrapper = styled.div`
   }
 `;
 
-function Dates() {
+function Dates({ invoice }) {
+  const [inv, setInvoiceDate] = useState(
+    {
+      createdAt: invoice ? invoice.createdAt : new Date(),
+      paymentTerms: invoice ? invoice.paymentTerms : "",
+    }
+  );
+
   const options = [
     { value: "7", label: "7 Days" },
     { value: "14", label: "14 Days" },
     { value: "30", label: "30 Days" },
   ];
 
-  const { control, formState: {errors} } = useFormContext();
+  const {
+    control,
+    formState: { errors },
+  } = useFormContext();
 
   return (
     <Wrapper>
       <FormSection className="dates">
         <div className="invoice-date">
           <Label>Invoice Date</Label>
-          <DatePicker />
+          <DatePicker invoiceDate={inv.createdAt} />
         </div>
         <div className="payment-terms">
           <Label>Payment Terms</Label>
-          {errors.paymentTerms && <ErrorMessage>{errors.paymentTerms.message}</ErrorMessage>}
+          {errors.paymentTerms && (
+            <ErrorMessage>{errors.paymentTerms.message}</ErrorMessage>
+          )}
           <Controller
             control={control}
             name="paymentTerms"
@@ -71,7 +83,6 @@ function Dates() {
             render={({ field }) => (
               <Select
                 options={options}
-                // value={"7"}
                 onChange={(value) => field.onChange(value.value)}
               />
             )}
