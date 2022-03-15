@@ -4,6 +4,7 @@ import IndexHeader from "../IndexHeader";
 import Container from "../shared/Container";
 import Card from "./InvoiceCard";
 import Loading from "../shared/Loading";
+import NoInvoices from "../NoInvoices";
 
 const StyledContainer = styled(Container)`
   display: grid;
@@ -28,7 +29,7 @@ function InvoicesIndex() {
     fetch("http://localhost:5001/invoices")
       .then((res) => res.json())
       .then((data) => {
-        setInvoices(data);
+        setInvoices(data || "empty");
         setIsLoading(false);
       });
   }, []);
@@ -56,6 +57,7 @@ function InvoicesIndex() {
       <IndexHeader invoices={filteredInvoices} handleChange={filterInvoices} />
       <StyledContainer>
         {isLoading && <Loading />}
+        {!isLoading && invoices.length === 0 && <NoInvoices />}
         {invoices &&
           filteredInvoices.map((invoice) => {
             return (
