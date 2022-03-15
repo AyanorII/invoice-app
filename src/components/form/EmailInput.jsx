@@ -1,11 +1,12 @@
 import React from "react";
 import Input from "./Input";
 
-function EmailInput() {
+function EmailInput({value}) {
   return (
     <Input
-      label="Client's Email"
       name={"clientEmail"}
+      value={value || ""}
+      label="Client's Email"
       placeholder="alexgrim@mail.com"
       type="email"
       rules={{

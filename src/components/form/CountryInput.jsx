@@ -1,11 +1,12 @@
 import React from "react";
 import Input from "./Input";
 
-function CountryInput({ side }) {
+function CountryInput({ side, value }) {
   return (
     <Input
-      label="Country"
       name={`${side}Address.country`}
+      value={value}
+      label="Country"
       placeholder="United Kingdom"
       className="country"
       rules={{

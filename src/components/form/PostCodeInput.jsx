@@ -1,11 +1,12 @@
 import React from "react";
 import Input from "./Input";
 
-function PostCode({side}) {
+function PostCode({ side, value }) {
   return (
     <Input
-      label="Post Code"
       name={`${side}Address.postCode`}
+      value={value}
+      label="Post Code"
       placeholder="E1 3EZ"
       className="postcode"
       rules={{

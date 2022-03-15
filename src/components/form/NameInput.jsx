@@ -1,11 +1,12 @@
 import React from "react";
 import Input from "./Input";
 
-function NameInput() {
+function NameInput({value}) {
   return (
     <Input
-      label="Client's Name"
       name={"clientName"}
+      value={value}
+      label="Client's Name"
       placeholder="Alex Grim"
       rules={{
         required: {
