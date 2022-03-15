@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import Button from "../shared/Button";
-import Container from "../shared/Container"
+import Container from "../shared/Container";
 
 const Footer = styled.footer`
   position: fixed;
@@ -24,7 +24,7 @@ const Footer = styled.footer`
   }
 
   @media (min-width: 1440px) {
-    padding-inline:  22.6%;
+    padding-inline: 22.6%;
   }
 `;
 
@@ -46,22 +46,18 @@ const StyledContainer = styled(Container)`
   @media (min-width: 1440px) {
     padding-inline: 0;
   }
-
 `;
 
-function FormFooter() {
-
+function FormFooter({ handleDraft }) {
   const { id } = useParams();
 
   return (
     <Footer>
       <StyledContainer>
-        <Button
-          to={id ? `/invoices/${id}` : "/"}
-          variant="edit">
+        <Button to={id ? `/invoices/${id}` : "/"} variant="edit">
           Discard
         </Button>
-        <Button as="button" variant="edit">
+        <Button as="button" onClick={handleDraft} variant="edit">
           Save as Draft
         </Button>
         <Button className="save-send-button" as="button" variant="new">

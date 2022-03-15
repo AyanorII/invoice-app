@@ -38,7 +38,6 @@ const getBody = (req, id, action) => {
       paymentDue: getPaymentDue(req),
       invoiceId: id,
       total: getTotal(req.body.items),
-      status: "pending",
     };
   }
   // If action is equal to "update", there is no need to set the the id and the status.
@@ -76,6 +75,10 @@ router.route("/:id").get((req, res) => {
 router.route("/create").post((req, res) => {
   const id = getId();
   const body = getBody(req, id, "create");
+
+  if (!body.status) {
+    body.status = "pending";
+  }
 
   Invoice.create(body, (err, response) => {
     sendResponse(res, err);
