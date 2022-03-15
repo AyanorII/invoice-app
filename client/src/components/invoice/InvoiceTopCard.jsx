@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { useParams } from "react-router-dom"
 import Button from "../shared/Button";
 import StatusButton from "./StatusButton";
 import Card from "../shared/Card";
@@ -39,7 +40,7 @@ const ButtonsContainer = styled.div`
   transform: translateX(-50%);
   padding: 1.25rem 1.5rem;
   z-index: 1;
-  background: ${props => props.theme.background};;
+  background: ${(props) => props.theme.background};
 
   @media (min-width: 768px) {
     position: static;
@@ -52,7 +53,23 @@ const ButtonsContainer = styled.div`
   }
 `;
 
+const markAsPaid = (id) => {
+  const uri = `http://localhost:5001/invoices/${id}/paid`;
+  const options = {
+    method: "PUT",
+  };
+  fetch(uri, options).then((response) => {
+    if (response.status === 200) {
+      window.location.href=`/invoices/${id}`
+    };
+  });
+};
+
+
 function InvoiceTopCard(props) {
+  const { id } = useParams();
+  console.log(id);
+
   return (
     <StyledCard>
       <StatusContainer>
@@ -66,7 +83,7 @@ function InvoiceTopCard(props) {
         <Button to="/" variant="delete">
           Delete
         </Button>
-        <Button to="/" variant="mark">
+        <Button as="button" onClick={() => markAsPaid(id)} variant="mark">
           Mark as Paid
         </Button>
       </ButtonsContainer>
