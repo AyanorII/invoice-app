@@ -7,7 +7,7 @@ const BillFrom = (props) => {
   return (
     <FormSection>
       <SubHeading>Bill From</SubHeading>
-      <Address side="sender"/>
+      <Address side="sender" invoice={props.invoice}/>
     </FormSection>
   );
 };

@@ -1,11 +1,12 @@
 import React from "react";
 import Input from "./Input";
 
-function CityInput({side}) {
+function CityInput({ side, value }) {
   return (
     <Input
-      label="City"
       name={`${side}Address.city`}
+      value={value}
+      label="City"
       placeholder="London"
       className="city"
       rules={{
@@ -13,7 +14,8 @@ function CityInput({side}) {
           value: true,
           message: "Cannot be empty",
         },
-      }} />
+      }}
+    />
   );
 }
 export default CityInput;

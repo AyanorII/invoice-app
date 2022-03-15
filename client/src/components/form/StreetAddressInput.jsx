@@ -1,11 +1,12 @@
 import React from "react";
 import Input from "./Input";
 
-function StreetAddressInput({ side }) {
+function StreetAddressInput({ side, value }) {
   return (
     <Input
-      label="Street Address"
       name={`${side}Address.street`}
+      value={value}
+      label="Street Address"
       placeholder="19 Union Terrace"
       rules={{
         required: {
