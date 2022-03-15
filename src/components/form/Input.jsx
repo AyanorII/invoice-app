@@ -12,13 +12,6 @@ const Wrapper = styled.div`
   justify-content: space-between;
   align-items: start;
 
-  &.city {
-    grid-column: 1 / 2;
-  }
-
-  &.postcode {
-    grid-column: 2 / 3;
-  }
 `;
 
 const StyledInput = styled.input`
