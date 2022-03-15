@@ -19,6 +19,7 @@ const StyledNavbar = styled.nav`
     grid-column: 1 / 2;
     grid-row: 1 / 3;
     position: fixed;
+    z-index: 10;
   }
 `;
 
