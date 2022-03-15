@@ -30,15 +30,15 @@ function App() {
       <>
         <GlobalStyle />
         <div className="App">
-          <Navbar theme={theme} toggleTheme={toggleTheme} />
           <Router>
+            <Navbar theme={theme} toggleTheme={toggleTheme} />
             <Routes>
               <Route path="/" element={<InvoicesIndex />} />
               <Route path="/invoices/new" element={<NewInvoice />} />
               <Route path="/invoices/:id/edit" element={<EditInvoice />} />
               <Route path="/invoices/:id" element={<Invoice />} />
               <Route path="/invoices" element={<Navigate to="/" />} />
-              <Route path="*" element={<Page404 />}/>
+              <Route path="*" element={<Page404 />} />
             </Routes>
           </Router>
         </div>
