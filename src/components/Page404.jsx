@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import gif from "../assets/page-not-found.gif";
+import illustration from "../assets/page-not-found.png";
 
 const Wrapper = styled.div`
   display: grid;
@@ -10,12 +10,20 @@ const Wrapper = styled.div`
   grid-column: 1 / -1;
 
   h1 {
-    font-size: 2.5rem;
+    font-size: 2rem;
     margin-bottom: 4rem;
+
+    @media (min-width: 1440px) {
+      font-size: 2.5rem;
+    }
   }
 
   img {
-    max-width: 100%;
+    max-width: 300px;
+
+    @media (min-width: 1440px) {
+      max-width: 500px;
+    }
   }
 
   @media (min-width: 1440px) {
@@ -28,7 +36,7 @@ function Page404() {
     <Wrapper>
       <div>
         <h1>Page not Found...</h1>
-        <img src={gif} alt="Page not found" />
+        <img src={illustration} alt="Page not found" />
       </div>
     </Wrapper>
   );
