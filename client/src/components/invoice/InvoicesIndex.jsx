@@ -26,7 +26,7 @@ function InvoicesIndex() {
   // Fetch invoices from API
   const [invoices, setInvoices] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5001/invoices")
+    fetch("https://ayanori-invoice-app-server.herokuapp.com/invoices")
       .then((res) => res.json())
       .then((data) => {
         setInvoices(data || "empty");
