@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import AddItemButton from "./AddItemButton";
 import Item from "./Item";
@@ -20,17 +20,34 @@ const Heading = styled.h2`
   font-weight: bold;
 `;
 
-function ItemList() {
+function ItemList({ invoice }) {
   const { control } = useFormContext();
   const { fields, append, remove } = useFieldArray({ control, name: "items" });
+
+  useEffect(() => {
+    // If editing an invoice, populates the item field, with each item details
+    if (window.location.pathname.includes("/edit")) {
+      invoice.items.forEach((item) => append(item));
+    }
+    // Shows one item field when page is loaded
+    if (fields.length === 0) {
+      append({});
+    }
+  }, []);
 
   return (
     <Wrapper>
       <Heading>Item List</Heading>
-      {/* <Item /> */}
       <StyledItemList>
         {fields.map((field, index) => (
-          <Item key={field.id} index={index} remove={remove}/>
+          <Item
+            key={field.id}
+            index={index}
+            remove={remove}
+            itemName={invoice ? invoice.items[index].name : ""}
+            itemQuantity={invoice ? invoice.items[index].quantity : ""}
+            itemPrice={invoice ? invoice.items[index].price : ""}
+          />
         ))}
       </StyledItemList>
       <AddItemButton onClick={() => append({})} />

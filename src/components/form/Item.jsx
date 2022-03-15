@@ -40,9 +40,9 @@ const StyledItem = styled.li`
   }
 `;
 
-function Item({ index, remove }) {
-  const [quantity, setQuantity] = useState("");
-  const [price, setPrice] = useState("");
+function Item({ index, remove, itemName, itemQuantity, itemPrice }) {
+  const [quantity, setQuantity] = useState(itemQuantity ? itemQuantity : "");
+  const [price, setPrice] = useState(itemPrice ? itemPrice : "");
   const [total, setTotal] = useState((quantity * price).toString());
 
   const handleQuantityChange = (e) => {
@@ -60,6 +60,7 @@ function Item({ index, remove }) {
     <StyledItem>
       <Input
         name={`items[${index}].name`}
+        value={itemName ? itemName : ""}
         label="Item Name"
         placeholder="Banner Design"
         className="name"
@@ -67,6 +68,7 @@ function Item({ index, remove }) {
       />
       <Input
         name={`items[${index}].quantity`}
+        value={itemQuantity ? itemQuantity : ""}
         type="number"
         label="Qty."
         placeholder="1"
@@ -76,6 +78,7 @@ function Item({ index, remove }) {
       />
       <Input
         name={`items[${index}].price`}
+        value={itemPrice ? itemPrice : ""}
         type="number"
         label="Price"
         placeholder="156.00"
