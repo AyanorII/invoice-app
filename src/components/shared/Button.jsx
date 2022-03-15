@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom";
 
 const StyledButton = styled(NavLink)`
   font-family: Spartan, sans-serif;
+  cursor: pointer;
   padding: ${(props) =>
     props.variant === "new" ? "0.5rem" : "1.125rem 1.5rem"};
 
