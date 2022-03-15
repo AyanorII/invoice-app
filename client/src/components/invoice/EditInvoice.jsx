@@ -23,7 +23,7 @@ function EditInvoice() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`https://ayanori-invoice-app-server.herokuapp.com/invoices/${id}`)
+    fetch(process.env.FIXIE_URL + `/invoices/${id}`)
       .then((res) => res.json())
       .then((inv) => {
         setInvoice(inv);
