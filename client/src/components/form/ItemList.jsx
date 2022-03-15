@@ -44,9 +44,17 @@ function ItemList({ invoice }) {
             key={field.id}
             index={index}
             remove={remove}
-            itemName={invoice ? invoice.items[index].name : ""}
-            itemQuantity={invoice ? invoice.items[index].quantity : ""}
-            itemPrice={invoice ? invoice.items[index].price : ""}
+            itemName={
+              invoice && invoice.items[index] ? invoice.items[index].name : ""
+            }
+            itemQuantity={
+              invoice && invoice.items[index]
+                ? invoice.items[index].quantity
+                : ""
+            }
+            itemPrice={
+              invoice && invoice.items[index] ? invoice.items[index].price : ""
+            }
           />
         ))}
       </StyledItemList>
