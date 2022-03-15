@@ -18,6 +18,11 @@ const StyledForm = styled.form`
 `;
 
 function Form({ method, id, invoice }) {
+  const [isSavedAsDraft, setIsSavedAsDraft] = useState(false);
+  const handleDraftSave = () => {
+    setIsSavedAsDraft(true);
+  }
+
   const methods = useForm();
 
   const uri = `http://localhost:5001/invoices/${
@@ -25,6 +30,10 @@ function Form({ method, id, invoice }) {
   }`;
 
   const onSubmit = (data) => {
+    if (isSavedAsDraft) {
+      data.status = "draft";
+    }
+
     fetch(uri, {
       method: method.toUpperCase(),
       headers: { "Content-Type": "application/json" },
@@ -38,7 +47,7 @@ function Form({ method, id, invoice }) {
     });
   };
 
-  // If updating, sets each field to the value of the invoice.
+  // If editing, sets each field to the value of the invoice.
   useEffect(() => {
     if (method.toUpperCase() === "PUT") {
       for (const field in methods.getValues()) {
@@ -61,7 +70,7 @@ function Form({ method, id, invoice }) {
         <Dates invoice={invoice} />
         <ProductDescription invoice={invoice} />
         <ItemList invoice={invoice} />
-        <FormFooter />
+        <FormFooter handleDraft={handleDraftSave}/>
       </StyledForm>
     </FormProvider>
   );
