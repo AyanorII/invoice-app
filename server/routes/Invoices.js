@@ -74,6 +74,19 @@ router.route("/create").post((req, res) => {
 //   })
 // });
 
+// Destroy
+router.route("/:id").delete((req, res) => {
+  const { id } = req.params;
+  const filter = { invoiceId: id };
+  Invoice.findOneAndDelete(filter, (err, response) => {
+    if (err) {
+      res.status(400).json("Error: " + err);
+    } else {
+      res.json(response);
+    }
+  })
+});
+
 // Mark as Paid
 router.route("/:id/paid").put((req, res) => {
   const { id } = req.params;

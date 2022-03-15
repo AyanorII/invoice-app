@@ -65,6 +65,18 @@ const markAsPaid = (id) => {
   });
 };
 
+const destroy = (id) => {
+  const uri = `http://localhost:5001/invoices/${id}`;
+  const options = {
+    method: "DELETE",
+  };
+  fetch(uri, options).then((response) => {
+    if (response.status === 200) {
+      window.location.href=`/invoices`
+    };
+  });
+}
+
 
 function InvoiceTopCard(props) {
   const { id } = useParams();
@@ -80,7 +92,7 @@ function InvoiceTopCard(props) {
         <Button to="/" variant="edit">
           Edit
         </Button>
-        <Button to="/" variant="delete">
+        <Button as="button" onClick={() => destroy(id)} variant="delete">
           Delete
         </Button>
         <Button as="button" onClick={() => markAsPaid(id)} variant="mark">
