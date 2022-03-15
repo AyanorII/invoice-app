@@ -16,6 +16,7 @@ import InvoicesIndex from "./components/invoice/InvoicesIndex";
 import Invoice from "./components/invoice/Invoice";
 import NewInvoice from "./components/invoice/NewInvoice";
 import EditInvoice from "./components/invoice/EditInvoice";
+import Page404 from "./components/Page404";
 
 function App() {
   const [theme, setTheme] = useState("light");
@@ -37,6 +38,7 @@ function App() {
               <Route path="/invoices/:id/edit" element={<EditInvoice />} />
               <Route path="/invoices/:id" element={<Invoice />} />
               <Route path="/invoices" element={<Navigate to="/" />} />
+              <Route path="*" element={<Page404 />}/>
             </Routes>
           </Router>
         </div>
