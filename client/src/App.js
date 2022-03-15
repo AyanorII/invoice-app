@@ -15,6 +15,7 @@ import Navbar from "./components/shared/Navbar";
 import InvoicesIndex from "./components/invoice/InvoicesIndex";
 import Invoice from "./components/invoice/Invoice";
 import NewInvoice from "./components/invoice/NewInvoice";
+import EditInvoice from "./components/invoice/EditInvoice";
 
 function App() {
   const [theme, setTheme] = useState("light");
@@ -32,8 +33,9 @@ function App() {
           <Router>
             <Routes>
               <Route path="/" element={<InvoicesIndex />} />
-              <Route path="/invoices/:id" element={<Invoice />} />
               <Route path="/invoices/new" element={<NewInvoice />} />
+              <Route path="/invoices/:id/edit" element={<EditInvoice />} />
+              <Route path="/invoices/:id" element={<Invoice />} />
               <Route path="/invoices" element={<Navigate to="/" />} />
             </Routes>
           </Router>
