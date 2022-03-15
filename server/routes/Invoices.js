@@ -62,23 +62,25 @@ router.route("/create").post((req, res) => {
   });
 });
 
-// Update
-// router.route("/:id").put((req, res) => {
-//   const { id } = req.params;
-//   Invoice.findOneAndUpdate({ invoiceId: id }, req.body, (err, response) => {
-//     if (err) {
-//       res.status(400).json("Error: " + err);
-//     } else {
-//       res.json(response);
-//     }
-//   })
-// });
-
 // Destroy
 router.route("/:id").delete((req, res) => {
   const { id } = req.params;
   const filter = { invoiceId: id };
   Invoice.findOneAndDelete(filter, (err, response) => {
+    if (err) {
+      res.status(400).json("Error: " + err);
+    } else {
+      res.json(response);
+    }
+  })
+});
+
+// Update
+router.route("/:id").put((req, res) => {
+  const { id } = req.params;
+  const filter = { invoiceId: id };
+  const update = { "$set": req.body };
+  Invoice.findOneAndUpdate(filter, update, (err, response) => {
     if (err) {
       res.status(400).json("Error: " + err);
     } else {
