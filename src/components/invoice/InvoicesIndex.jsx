@@ -3,6 +3,7 @@ import styled from "styled-components";
 import IndexHeader from "../IndexHeader";
 import Container from "../shared/Container";
 import Card from "./InvoiceCard";
+import Loading from "../shared/Loading";
 
 const StyledContainer = styled(Container)`
   display: grid;
@@ -26,7 +27,10 @@ function InvoicesIndex() {
   useEffect(() => {
     fetch("http://localhost:5001/invoices")
       .then((res) => res.json())
-      .then((data) => setInvoices(data));
+      .then((data) => {
+        setInvoices(data);
+        setIsLoading(false);
+      });
   }, []);
 
   const [filters, setFilters] = useState({
@@ -45,12 +49,14 @@ function InvoicesIndex() {
       : filters[invoice.status]
   );
 
+  const [isLoading, setIsLoading] = useState(true);
+
   return (
     <>
       <IndexHeader invoices={filteredInvoices} handleChange={filterInvoices} />
       <StyledContainer>
+        {isLoading && <Loading />}
         {invoices &&
-
           filteredInvoices.map((invoice) => {
             return (
               <Card
