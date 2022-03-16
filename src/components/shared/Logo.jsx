@@ -26,7 +26,7 @@ const StyledLogo = styled.img`
 function Logo() {
   return (
     <StyledLink to="/">
-      <StyledLogo src={image} />;
+      <StyledLogo src={image} />
     </StyledLink>
   );
 }
